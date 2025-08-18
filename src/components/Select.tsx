@@ -11,15 +11,22 @@ interface SelectProps {
   options: string[];
   className?: string;
   placeholder?: string;
+  value?: string;
+  onChange?: (value: string) => void;
 }
 
 export default function Select({
   options,
   className,
   placeholder,
+  onChange,
+  value,
 }: SelectProps) {
   return (
-    <SelectUI>
+    <SelectUI
+      onValueChange={onChange}
+      value={value}
+    >
       <SelectTrigger
         className={cn('w-56', className)}
       >

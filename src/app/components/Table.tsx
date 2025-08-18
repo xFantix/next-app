@@ -1,11 +1,14 @@
-import { DataTable } from '@/components/DataTable';
-import Filters from './Filters';
+import { getProducts } from '@/service/product.service';
+import { Suspense } from 'react';
+import ProductTable from './ProductTable';
+export default async function Table() {
+  const products = await getProducts();
 
-export default function Table() {
   return (
     <div className="flex flex-col gap-4">
-      <Filters />
-      <DataTable columns={[]} data={[]} />
+      <Suspense fallback={<div>Loading...</div>}>
+        <ProductTable products={products} />
+      </Suspense>
     </div>
   );
 }
