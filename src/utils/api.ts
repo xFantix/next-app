@@ -9,7 +9,7 @@ type HttpMethod =
   | 'PATCH'
   | 'DELETE';
 
-const httpRequest = async <T>(
+const httpRequest = async (
   endpoint: string,
   method: HttpMethod,
   nextConfig?: NextFetchRequestConfig | null
